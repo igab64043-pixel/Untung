@@ -1,0 +1,6 @@
+{
+  "name": "PerpusAI",
+  "description": "Aplikasi Perpustakaan Offline & AI Guru Baca Buku Offline",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,49 @@
+name: Build Android APK (PerpusAI-Expo)
+
+# Trigger workflow hanya saat push ke branch main
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build APK via EAS Build Cloud
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout repository
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Setup Node.js runtime environment (LTS)
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      # Step 3: Install Expo CLI dan EAS CLI secara global
+      - name: 🚀 Setup Expo & EAS CLI
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EAS_TOKEN }}
+
+      # Step 4: Install project dependencies (pnpm/npm/yarn)
+      - name: 📦 Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      # Step 5: Jalankan EAS Build Android untuk profile preview (menghasilkan file APK)
+      - name: 🔨 Build Android APK via EAS (Cloud 100%)
+        run: |
+          eas build -p android --profile preview --non-interactive --auto-submit false
+        env:
+          EXPO_TOKEN: ${{ secrets.EAS_TOKEN }}
+
+      # Step 6: Informational log completion
+      - name: ✅ Build completed notice
+        run: |
+          echo "Build APK PerpusAI-Expo selesai dikirim ke EAS Build!"
+          echo "Cek dashboard Expo di https://expo.dev untuk mengunduh APK hasil build."

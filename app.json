@@ -1,0 +1,44 @@
+{
+  "expo": {
+    "name": "PerpusAI-Expo",
+    "slug": "perpusai-expo",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "perpusai",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0f172a"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0f172a"
+      },
+      "package": "com.aistudio.perpusai.expo"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sqlite",
+      [
+        "expo-file-system",
+        {
+          "enableBackgroundDownloads": true
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "perpusai-expo-id"
+      }
+    }
+  }
+}
