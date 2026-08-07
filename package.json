@@ -1,7 +1,6 @@
 {
   "name": "perpusai-expo",
   "version": "1.0.0",
-  "packageManager": "npm@10.2.3",
   "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",
