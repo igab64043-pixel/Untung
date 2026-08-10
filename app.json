@@ -36,8 +36,13 @@
       ]
     ],
     "extra": {
-      "eas": {
-        "projectId":"7d79eceb-06f4-426e-b849-302f1cd48602"
+  "eas": {
+    "projectId": "7d79eceb-06f4-426e-b849-302f1cd48602"
+  }
+},
+"owner": "hosnei",
+"sdkVersion": "52.0.0",
+...
       }
     }
   }
